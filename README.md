@@ -1,17 +1,23 @@
 # djangotutorial
+
+## Comandos para git
+
+- `git clone https://github.com/eeparquedasaroeiras/djangotutorial.git`
+- `git status`
+- `git add .`
+- `git commit -m "mesangem doque foi feito"`
+- `git push`
+
 ## Comandos
 
-1. `git clone git@github.com:eeparquedasaroeiras/djangotutorial.git`
-1. `uv venv`
-1. `uv pip install django`
-1. `uv run manage.py runserver`
-1. `uv run manage.py runserver`
-1. `uv run manage.py migrate`
-1. `uv run manage.py createsuperuser`
-
-## Ferramentas
-
-- https://moonrepo.dev/docs/proto/install
+1. `pip install django`
+2. `python manage.py migrate`
+3. `python manage.py createsuperuser`
+4. `python manage.py runserver`
+5. Abrir no navegador o site http://localhost:3000
+6. ![img.png](doc/media/home.png)
+7. Depois acessar http://localhost:3000/admin
+8. ![img_1.png](doc/media/home_admin.png)
 
 ## Documantação externa
 
