@@ -19,7 +19,13 @@ from django.urls import path
 
 from nasa_store import views
 
+
+app_name = "loja"
 urlpatterns = [
     path('', views.index, name='index'),
+    path('produto/<int:id>/', views.detalhes, name='produto'),
+    path('carrinho/', views.carrinho, name='carrinho'),
+    path('adicionar_carrinho/<int:id>/', views.adicionar_carrinho, name='adicionar_carrinho'),
+    path('remover_carrinho/<int:id>/', views.remover_carrinho, name='remover_carrinho'),
     path('admin/', admin.site.urls)
 ]

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Produto {{ latest_question_list.nome }}{% endblock %}
+
+{% block content %}
+    <a href="/produto/{{ latest_question_list.id }}/">{{ latest_question_list.nome }}</a>
+    R$ {{ latest_question_list.preco }}
+    <form action="/adicionar_carrinho/{{ latest_question_list.id }}/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Adicionar no carrinho">
+    </form>
+{% endblock %}

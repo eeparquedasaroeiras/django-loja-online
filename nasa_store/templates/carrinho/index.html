@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Carinho{% endblock %}
+
+{% block content %}
+    {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <li>
+                    <a href="/produto/{{ question.produto.id }}/">{{ question.produto.nome }} - R$ {{ question.produto.preco }}</a>
+                    <form action="/remover_carrinho/{{ question.id }}/" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Remover do carrinho">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sem produto para comprar.</p>
+    {% endif %}
+{% endblock %}

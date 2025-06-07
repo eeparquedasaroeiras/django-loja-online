@@ -5,7 +5,11 @@
     <link media="all" rel="stylesheet" href="{% static 'css/main.css' %}" />
 </head>
 <body>
-    <img src="{% static 'images/sitelogo.webp' %}" alt="Logo">
+    <h1>Loja online</h1>
+    <ul>
+        <li><a href="/"><img src="{% static 'images/sitelogo.webp' %}" alt="Logo"></a></li>
+        <li><a href="/carrinho/">Carinho</a></li>
+    </ul>
     {% block content %}{% endblock %}
     <script type="application/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
