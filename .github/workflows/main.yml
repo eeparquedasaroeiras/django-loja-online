@@ -1,0 +1,36 @@
+name: Deploy to PythonAnywhere
+
+on:
+  push:
+    branches:
+      - main # Or your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Option 1: If you want to run git pull, migrate, collectstatic via SSH (requires paid PythonAnywhere account and SSH setup)
+    # - name: SSH and update on PythonAnywhere
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ssh.pythonanywhere.com # or ssh.eu.pythonanywhere.com
+    #     username: ${{ secrets.PYTHONANYWHERE_USERNAME }}
+    #     key: ${{ secrets.SSH_PRIVATE_KEY }} # Add your private SSH key as a GitHub secret
+    #     script: |
+    #       cd /home/${{ secrets.PYTHONANYWHERE_USERNAME }}/your_project_directory
+    #       source ~/.virtualenvs/my-virtualenv-name/bin/activate
+    #       git pull
+    #       python manage.py migrate
+    #       python manage.py collectstatic
+
+    # Option 2: Use the PythonAnywhere API to trigger a reload (assumes your code is already updated on PythonAnywhere via another mechanism, or you're relying on PythonAnywhere's git integration)
+    - name: Reload PythonAnywhere Web App
+      uses: jensvog/pythonanywhere-webapp-reload-action@v1
+      with:
+        host: 'www.pythonanywhere.com' # or 'www.eu.pythonanywhere.com'
+        username: neiesc # Replace with your actual username
+        api-token: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
+        domain-name: neiesc.pythonanywhere.com # Replace with your web app's domain
