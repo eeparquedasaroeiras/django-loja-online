@@ -39,4 +39,6 @@ def adicionar_carrinho(request, id):
     return HttpResponseRedirect("/carrinho/")
 
 def remover_carrinho(request, id):
+    PedidoItem.objects.filter(id=id).delete()
+
     return HttpResponseRedirect("/carrinho/")

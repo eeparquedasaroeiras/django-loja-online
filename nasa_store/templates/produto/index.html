@@ -3,13 +3,24 @@
 {% block title %}Articles for {{ year }}{% endblock %}
 
 {% block content %}
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/produto/{{ question.id }}/">{{ question.nome }} - R$ {{ question.preco }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Sem produto para comprar.</p>
-{% endif %}
+    {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <li>
+                    <form action="/adicionar_carrinho/{{ question.id }}/" method="post">
+                        {% csrf_token %}
+                        <span>
+                            <a href="/produto/{{ question.id }}/">{{ question.nome }}</a>
+                             - R$ {{ question.preco }}
+                        </span>
+                        <span class="icon">
+                            <button class="button"><i class="fa-solid fa-circle-plus"></i></button>
+                        </span>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sem produto para comprar.</p>
+    {% endif %}
 {% endblock %}

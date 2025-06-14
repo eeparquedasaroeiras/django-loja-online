@@ -7,10 +7,17 @@
         <ul>
             {% for question in latest_question_list %}
                 <li>
-                    <a href="/produto/{{ question.produto.id }}/">{{ question.produto.nome }} - R$ {{ question.produto.preco }}</a>
                     <form action="/remover_carrinho/{{ question.id }}/" method="post">
                         {% csrf_token %}
-                        <input type="submit" value="Remover do carrinho">
+                        <span>
+                            <a href="/produto/{{ question.produto.id }}/">
+                                {{ question.produto.nome }}
+                            </a>
+                             - R$ {{ question.produto.preco }}
+                        </span>
+                        <span class="icon">
+                            <button class="button"><i class="fa-solid fa-trash-can"></i></button>
+                        </span>
                     </form>
                 </li>
             {% endfor %}
