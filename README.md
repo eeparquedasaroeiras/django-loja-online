@@ -15,10 +15,11 @@
 3. `python manage.py createsuperuser`
 4. `python manage.py runserver`
 5. Abrir no navegador o site http://localhost:3000
-6. ![img.png](doc/media/home.png)
+6. ![Sreenshot home](doc/media/home.png)
 7. Depois acessar http://localhost:3000/admin
-8. ![img_1.png](doc/media/home_admin.png)
+8. ![Sreenshot home do admin](doc/media/home_admin.png)
 
-## Documantação externa
+## Documantação
 
+- [Documantação do projeto](doc/README.md)
 - https://docs.djangoproject.com/en/5.1/
